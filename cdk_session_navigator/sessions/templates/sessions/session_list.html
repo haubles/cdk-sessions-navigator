@@ -1,0 +1,84 @@
+<!-- templates/sessions/session_list.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AWS re:Invent CDK Sessions</title>
+    <!-- AWS Design System CSS -->
+    <link rel="stylesheet" href="cdn.jsdelivr.net/npm/@aws-amplify/ui@3.0.0/dist/styles.css">
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" type="text/css" href="cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+    
+    <style>
+        :root {
+            --color-primary: #232F3E;  /* AWS Navy */
+            --color-secondary: #FF9900;  /* AWS Orange */
+        }
+        
+        body {
+            font-family: "Amazon Ember", Arial, sans-serif;
+            margin: 20px;
+        }
+        
+        .header {
+            background-color: var(--color-primary);
+            color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .reinvent-logo {
+            color: var(--color-secondary);
+            font-weight: bold;
+        }
+        
+        table.dataTable thead th {
+            background-color: var(--color-primary);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>AWS re:Invent <span class="reinvent-logo">2024</span></h1>
+        <h2>CDK Sessions</h2>
+    </div>
+
+    <table id="sessions-table" class="display">
+        <thead>
+            <tr>
+                <th>Session Code</th>
+                <th>Title</th>
+                <th>Date</th>
+                <th>Location</th>
+                <th>Level</th>
+                <th>Speaker</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for session in sessions %}
+            <tr>
+                <td>{{ session.session_code }}</td>
+                <td>{{ session.title }}</td>
+                <td>{{ session.date }}</td>
+                <td>{{ session.location }}</td>
+                <td>{{ session.level }}</td>
+                <td>{{ session.speaker }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- JavaScript -->
+    <script src="code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/css" src="cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#sessions-table').DataTable({
+                "pageLength": 25,
+                "order": [[2, "asc"]], // Sort by date by default
+                "responsive": true
+            });
+        });
+    </script>
+</body>
+</html>
