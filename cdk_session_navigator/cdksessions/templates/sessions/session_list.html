@@ -4,9 +4,9 @@
 <head>
     <title>AWS re:Invent CDK Sessions</title>
     <!-- AWS Design System CSS -->
-    <link rel="stylesheet" href="cdn.jsdelivr.net/npm/@aws-amplify/ui@3.0.0/dist/styles.css">
+    <link rel="stylesheet" href="/static/styles.css">
     <!-- DataTables CSS -->
-    <link rel="stylesheet" type="text/css" href="cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="/static/jquery.dataTables.css">
     
     <style>
         :root {
@@ -46,30 +46,40 @@
     <table id="sessions-table" class="display">
         <thead>
             <tr>
-                <th>Session Code</th>
-                <th>Title</th>
-                <th>Date</th>
+                <th>Day</th>
+                <th>Time</th>
                 <th>Location</th>
-                <th>Level</th>
-                <th>Speaker</th>
+                <th>Type</th>
+                <th>Link</th>
+                <th>Session ID</th>
+                <th>Topic</th>
+                <th>Area of Interest</th>
+                <th>Title</th>
+                <th>Speakers</th>
+                <th>Abstract</th>
             </tr>
         </thead>
         <tbody>
             {% for session in sessions %}
             <tr>
-                <td>{{ session.session_code }}</td>
-                <td>{{ session.title }}</td>
-                <td>{{ session.date }}</td>
-                <td>{{ session.location }}</td>
-                <td>{{ session.level }}</td>
-                <td>{{ session.speaker }}</td>
+                <td>{{ session.Day }}</td>
+                <td>{{ session.Time }}</td>
+                <td>{{ session.Location }}</td>
+                <td>{{ session.Type }}</td>
+                <td>{{ session.Link }}</td>
+                <td>{{ session.SessionID }}</td>
+                <td>{{ session.Topic }}</td>
+                <td>{{ session.Area_of_Interest }}</td>
+                <td>{{ session.Title }}</td>
+                <td>{{ session.Speakers }}</td>
+                <td>{{ session.Abstract }}</td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
 
     <!-- JavaScript -->
-    <script src="code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }} /static/jquery-3.7.1.min.js"></script>
     <script type="text/css" src="cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
     <script>
         $(document).ready(function() {

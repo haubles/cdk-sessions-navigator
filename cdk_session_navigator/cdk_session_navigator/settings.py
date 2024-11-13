@@ -29,16 +29,15 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-SITE_ID = 1
 
 INSTALLED_APPS = [
+    'cdksessions.apps.CdksessionsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.sites',
 ]
 
 MIDDLEWARE = [
